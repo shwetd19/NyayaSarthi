@@ -1,11 +1,14 @@
 
 const User = require('../models/user.js');
+const Case = require('../models/caseModel.js');
+
 const ErrorResponse = require('../utils/errorResponse');
 
 
 exports.signup = async (req, res, next) => {
     const { email } = req.body;
     const userExist = await User.findOne({ email });
+    console.log({email})
     if (userExist) {
         return next(new ErrorResponse("E-mail already registred", 400));
     }
@@ -72,7 +75,6 @@ exports.logout = (req, res, next) => {
         message: "logged out"
     })
 }
-
 
 let username = ""
 // user profile
@@ -148,9 +150,7 @@ exports.getUserCases = async (req, res, next) => {
   
       console.log('User Cases:', user.cases);
   
-      // Log the objects within each case  
-
-      // this is updated
+      // Log the objects within each case
       user.cases.forEach((caseItem) => {
         console.log(`Case ${caseItem._id}:`, caseItem);
       });

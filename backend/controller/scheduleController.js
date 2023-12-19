@@ -133,7 +133,7 @@ exports.updateSeverity = async (req, res) => {
             new: true,
         });
 
-        console.log(newCaseSeverity)
+        console.log("newCase Severity ", newCaseSeverity)
         res.status(200).json({
             success: true,
             newCaseSeverity,

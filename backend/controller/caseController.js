@@ -116,7 +116,7 @@ exports.addCase = async (req, res) => {
 
     const url = `https://us-central1-aiplatform.googleapis.com/v1/projects/global-incline-407709/locations/us-central1/publishers/google/models/text-bison:predict`;
 
-    const TOKEN = `ya29.a0AfB_byCbIK0ueg6OAZkG-zv3lhnGMQ4v-IaRGpr8GEd0gz_pQShGFPZw1j47I35AU0T-vdgh7_7s0lsKJW1Zlv9IZg_i-KzcWW_k-VP-xND4boKas9kxf21fANjqY840jZPYt8dGx_8C5OqhqaIj1gfSvnOqrJrSqWCo3-0tDusbWCQhDkuITEsW6SLonIh0SMLaQ9sYBAhNDhyKOXRjf7-QPOH7Z6NzxJgoUpnUddVwD03UfKUv0as0Ji3e2YmSCgtwQHjxB6HQdBS9HuXgGtVIJryHHNQKaRnQ_mpg1Kv_hsrMA6ANR6cf7o2K1F6SB1WLOLhU57F3SIaoewG35a6QAJGGYi5Mk-3echlmGgBmaNi9YTte8Fnn6SoUQtCXQbuaK_XQjDUVl0nniQj0V_385C3JHggaCgYKASYSARISFQHGX2MiShzV2Us2469VQYT-vz9qig0422`;
+    const TOKEN = `ya29.a0AfB_byCOg8zKiWbzhl3JwW0yFQ5ScfSLhsQ9G3bN9oVSMiAf6DhR8Pp1ezy_oChNFonhPPPSdZ9t6vm3jhYq8-eslh0ZhuQvS_QLuyZ7svi5Rtg9IMKUSQ5s8BGO9vwgttSgFEWSLYxF2yKdIn0Qhy7r5Fr5eNaxjZ89l9SfipFA7qtNqmy8ZOfp5-rghRTgUeRUbXeIcCoB2cQsLkPKb7CzBaTCShc1joSAmN7O0EQRjz5valAgrXXhfqXvMERYxDu3clLxXMGNJK7T0jga2YctJXj1MfVl0qoP7GMNtDhwiAKgyx5ixRIXOeXtcqtgPud12iEmFMwmQtZp7O6LeVoqbTdCjg_UNCy-PtF_vVO9mUIuSJlXkR8aCQPhQNckVLZWeijTAPV20lkRAU_ZdxvmJpf4UXkaCgYKAc4SARISFQHGX2Mi1VGDIBEvv-QV1cB9VwReGQ0422`;
 
 
 
@@ -125,7 +125,8 @@ exports.addCase = async (req, res) => {
     const data = {
       instances: [
         {
-          content: `You are an assistant that should answer any questions based on Indian cases also use Indian penal codes and states laws and all the laws of India if asked, analyze the input to give severity of the case(from 1 to 10 ) based case complexity and nature of case and time to dispose the case and max punishable year from 1-10 along with the sections that could be imposed on it.
+          content: `You are an assistant that should answer any questions  based on Indian cases also use Indian penal codes and states laws and all the laws of India  if asked, analyze the input to give severity of the case(from 1 to 10 ) based case complexity and nature of case and time to dispose the case and max punishable year from 1-10 along with the sections that could be imposed on it.
+          and return Severity of the Case like /Severity of the Case: (\d+)/ this regex
     
               input: Case ID
               input: Sections acts
@@ -161,7 +162,10 @@ exports.addCase = async (req, res) => {
 
     // Function to extract severity of the case using regex and convert to number
     function extractSeverityAsNumber(prediction) {
-      const severityRegex = /\Severity of the Case:\*\*\ (\d+(?:\/\d+)?)/;
+      const severityRegex = /Severity of the Case: (\d+)/;
+      // const severityRegex = /\Severity of the Case:\ (\d+(?:\/\d+)?)/;
+      // const severityRegex = /\Severity of the Case:\ (\d+(?:\/\d+)?)/;
+      console.log(severityRegex)
       const match = prediction.match(severityRegex);
       if (match && match.length > 1) {
         const severityString = match[1];
@@ -273,6 +277,7 @@ exports.getUserCasesDetails = async (req, res, next) => {
   try {
     const userId = req.user.id;
     console.log("User ID:", userId);
+    const MasterCase = mongoose.model("MasterCase", Case.schema);
 
     const user = await User.findById(userId).populate({
       path: "cases",

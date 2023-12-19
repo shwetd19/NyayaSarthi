@@ -50,13 +50,12 @@ const RegisterBoxed = () => {
   //   }
   // };
 
-  const sendDataToBackend = async (data: any) => {
+  const sendDataToBackend = async (data:any) => {
     try {
-      console.log(data);
       // const response: AxiosResponse<any> = await axios.post("http://localhost:5000/api/signup", data,{
       const response: AxiosResponse<any> = await axiosInstance.post(
         "/signup",
-        data
+        {data}
       );
       console.log("Data sent to the backend:", response.data);
       // navigate("/")
@@ -138,10 +137,9 @@ const RegisterBoxed = () => {
                       onChange={handleInputChange}
                       required
                     >
-                      <option value="">Choose...</option>
-                      <option value="Lawyer">Lawyer</option>
-                      <option value="Judge">Judge</option>
-                      <option value="courtAdmin">Court Admin</option>
+                      <option>Choose...</option>
+                      <option>State1</option>
+                      <option>State2</option>
                     </select>
                   </div>
                   <div>
@@ -191,9 +189,9 @@ const RegisterBoxed = () => {
                       required
                     >
                       <option value="">--- select ---</option>
-                      <option value="High Court">High Court</option>
-                      <option value="District Court">District Court</option>
-                      <option value="Supreme Court">Supreme Court</option>
+                      <option value="One">One</option>
+                      <option value="Two">Two</option>
+                      <option value="Three">Three</option>
                     </select>
                   </div>
                   <div>

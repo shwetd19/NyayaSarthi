@@ -10,6 +10,7 @@ import Sidebar from "./Sidebar";
 import Sidebar2 from "./Sidebar2";
 import Sidebar3 from "./Sidebar3";
 import Portals from "../../components/Portals";
+import { axiosInstance } from "../../config";
 
 const DefaultLayout = ({ children }: PropsWithChildren) => {
   const themeConfig = useSelector((state: IRootState) => state.themeConfig);
@@ -54,8 +55,10 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const userData = "third";
-      changeUser(userData);
+      // const userData = "Lawyer";
+      const resp = await axiosInstance.get("/usertype");
+      console.log("Here is the ", resp.data.userType);
+      changeUser(resp.data.userType);
     };
     fetchData();
   }, []);
@@ -138,14 +141,11 @@ const DefaultLayout = ({ children }: PropsWithChildren) => {
         >
           {/* BEGIN SIDEBAR */}
           {user ? (
-            // lawyer
-            user === "first" ? (
+            user === "Lawyer" ? (
               <Sidebar />
-            ) : // courtAdmin
-            user === "second" ? (
+            ) : user === "courtAdmin" ? (
               <Sidebar2 />
-            ) : // judge
-            user === "third" ? (
+            ) : user === "Judge" ? (
               <Sidebar3 />
             ) : null
           ) : null}

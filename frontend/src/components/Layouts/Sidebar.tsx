@@ -92,7 +92,7 @@ const Sidebar = () => {
                 alt="logo"
               />
               <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 font-semibold align-middle lg:inline dark:text-white-light">
-                {t("Prasad")}
+                {t("Nyaya Sarthi")}
               </span>
             </NavLink>
 
@@ -195,7 +195,7 @@ const Sidebar = () => {
                     </NavLink>
                   </li>
 
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <NavLink to="/apps/calendar" className="group">
                       <div className="flex items-center">
                         <IconMenuCalendar className="group-hover:!text-primary shrink-0" />
@@ -204,7 +204,7 @@ const Sidebar = () => {
                         </span>
                       </div>
                     </NavLink>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
 
@@ -232,16 +232,21 @@ const Sidebar = () => {
                   </div>
                 </button>
 
-                <AnimateHeight duration={300} height={currentMenu === 'users' ? 'auto' : 0}>
-                                    <ul className="sub-menu text-gray-500">
-                                        <li>
-                                            <NavLink to="/profile2">{t('profile')}</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to="/users/user-account-settings">{t('account_settings')}</NavLink>
-                                        </li>
-                                    </ul>
-                                </AnimateHeight>
+                <AnimateHeight
+                  duration={300}
+                  height={currentMenu === "users" ? "auto" : 0}
+                >
+                  <ul className="sub-menu text-gray-500">
+                    <li>
+                      <NavLink to="/profile2">{t("profile")}</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/users/user-account-settings">
+                        {t("account_settings")}
+                      </NavLink>
+                    </li>
+                  </ul>
+                </AnimateHeight>
               </li>
 
               {/*

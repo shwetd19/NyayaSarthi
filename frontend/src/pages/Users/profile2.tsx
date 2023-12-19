@@ -44,7 +44,7 @@ const Profile = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setPageTitle('Sales Admin'));
+        dispatch(setPageTitle('Team Astra'));
     });
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
@@ -55,11 +55,11 @@ const Profile = () => {
     const revenueChart: any = {
         series: [
             {
-                name: 'Income',
+                name: 'Scheduled',
                 data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000, 15000, 17000, 14000, 17000],
             },
             {
-                name: 'Expenses',
+                name: 'Not Scheduled',
                 data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000, 16000, 19000, 18000, 19000],
             },
         ],
@@ -135,7 +135,7 @@ const Profile = () => {
                 tickAmount: 7,
                 labels: {
                     formatter: (value: number) => {
-                        return value / 1000 + 'K';
+                        return Math.round(value / 1000); // Round the value to the nearest whole number
                     },
                     offsetX: isRtl ? -30 : -10,
                     offsetY: 0,
@@ -202,7 +202,7 @@ const Profile = () => {
     };
 
     const salesByCategory: any = {
-        series: [985, 737, 270],
+        series: [39, 46],
         options: {
             chart: {
                 type: 'donut',
@@ -266,7 +266,7 @@ const Profile = () => {
                     },
                 },
             },
-            labels: ['Apparel', 'Sports', 'Others'],
+            labels: ['Scheduled', 'Unscheduled'],
             states: {
                 hover: {
                     filter: {
@@ -369,7 +369,7 @@ getUserDataFromBackend();
                 <div className="grid xl:grid-cols-3 gap-6 mb-6">
                     <div className="panel h-full xl:col-span-2">
                         <div className="flex items-center justify-between dark:text-white-light mb-5">
-                            <h5 className="font-semibold text-lg">Revenue</h5>
+                            <h5 className="font-semibold text-lg">Details</h5>
                             <div className="dropdown">
                                 <Dropdown
                                     offset={[0, 1]}
@@ -391,7 +391,7 @@ getUserDataFromBackend();
                             </div>
                         </div>
                         <p className="text-lg dark:text-white-light/90">
-                            Total Profit <span className="text-primary ml-2">$10,840</span>
+                            Total Cases <span className="text-primary ml-2">61  </span>
                         </p>
                         <div className="relative">
                             <div className="bg-white dark:bg-black rounded-lg overflow-hidden">
@@ -408,7 +408,7 @@ getUserDataFromBackend();
 
                     <div className="panel h-full">
                         <div className="flex items-center mb-5">
-                            <h5 className="font-semibold text-lg dark:text-white-light">Sales By Category</h5>
+                            <h5 className="font-semibold text-lg dark:text-white-light">Cases By Category</h5>
                         </div>
                         <div>
                             <div className="bg-white dark:bg-black rounded-lg overflow-hidden">

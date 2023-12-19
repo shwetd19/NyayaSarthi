@@ -59,7 +59,7 @@ const Faq = () => {
                         <div className="whitespace-nowrap font-medium text-black dark:text-white">Popular topics :</div>
                         <div className="flex items-center justify-center gap-2 sm:gap-5">
                             <Link to="#" className="duration-300 hover:underline">
-                                Sales
+                                Team_Astra_11
                             </Link>
                             <Link to="#" className="duration-300 hover:underline">
                                 Charts
@@ -136,7 +136,7 @@ const Faq = () => {
                             ${active1 === 1 ? 'bg-primary-light dark:bg-[#1B2E4B] !text-primary' : ''}`}
                                 onClick={() => setActive1(active1 === 1 ? null : 1)}
                             >
-                                <span>How to install VRISTO Admin</span>
+                                <span>Dashboard</span>
                                 {active1 !== 1 ? (
                                     <span className="shrink-0">
                                         <IconPlusCircle duotone={false} />

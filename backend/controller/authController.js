@@ -96,9 +96,11 @@ exports.userProfile = async (req, res, next) => {
 exports.usertype = async (req, res, next) => {
   try {
     // Assuming username is a global variable or defined in the same module
+    // const user = await User.findById(req.user.id).select('-password');
+    // username = user.type;
     res.status(200).json({
       success: true,
-      userType: username // Use the username variable to get the user type
+      userType: req.user.type // Use the username variable to get the user type
     });
   } catch (error) {
     // Handle any errors

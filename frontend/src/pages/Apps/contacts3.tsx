@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import IconMenuScrumboard from "../../components/Icon/IconNotes";
 import { axiosInstance } from "../../config";
-
+import Popup from "./Popup";
 // Interface for Contact
 interface Contact {
   id: number;
@@ -37,7 +37,7 @@ const Contacts = () => {
       id: 3,
     },
   ];
-
+  const [isPopupOpen, setPopupOpen] = useState<string | null>(null);
   const [contactsData, setContactsData] = useState<Contact[]>([]);
   const [showModal, setShowModal] = useState(false); // State to manage the modal visibility
   const [courtId, setcourtId] = useState<string>("");
@@ -70,15 +70,21 @@ const Contacts = () => {
   };
 
   // Function to handle opening the modal
-  const openModal = () => {
-    setShowModal(true);
+  // const openModal = () => {
+  //   setShowModal(true);
+  // };
+
+  // // Function to handle closing the modal
+  // const closeModal = () => {
+  //   setShowModal(false);
+  // };
+  const openPopup = (id: string) => {
+    setPopupOpen(id);
   };
 
-  // Function to handle closing the modal
-  const closeModal = () => {
-    setShowModal(false);
+  const closePopup = () => {
+    setPopupOpen(null);
   };
-
   return (
     <div>
       <div className="flex items-center justify-between flex-wrap gap-3">
@@ -129,11 +135,20 @@ const Contacts = () => {
                   <td>
                     <div className="flex gap-4 items-center justify-center">
                       <button
+                        onClick={() => openPopup(data._id)}
                         type="button"
                         className="btn btn-sm btn-outline-primary"
                       >
                         Change Priority
                       </button>
+                      {isPopupOpen === data._id && (
+                        <Popup
+                          isOpen={true}
+                          onClose={closePopup}
+                          id={data._id}
+                          // severity={}
+                        />
+                      )}
                     </div>
                   </td>
                 </tr>
@@ -142,18 +157,6 @@ const Contacts = () => {
           </table>
         </div>
       </div>
-      {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <h2>Change Priority</h2>
-            {/* Content of your modal */}
-            {/* You can add form elements or any other content for changing priority */}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

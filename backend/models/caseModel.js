@@ -12,74 +12,74 @@ const caseSchema = new mongoose.Schema(
     userID: {
       type: ObjectId,
       ref: "User", // Assuming "User" is the model for the user collection
-      required: true,
+      // required: true,
     },
     severity: {
       type: Number,
     },
     courtType: {
       type: String,
-      enum: [
-        "District Court",
-        "High Court",
-        "Supreme Court",
-        "Magistrate Court",
-      ],
-      required: true,
+      // enum: [
+      //   "District Court",
+      //   "High Court",
+      //   "Supreme Court",
+      //   "Magistrate Court",
+      // ],
+      // required: true,
     },
 
     courtID: {
       type: String,
-      enum: ["DC001", "HC001", "SC001", "MC001", "PUNE001"],
-      required: true,
+      // enum: ["DC001", "HC001", "SC001", "MC001", "PUNE001"],
+      // required: true,
       // unique: true,
     },
     // Case Details
     caseDetails: {
       caseDescription: {
         type: String,
-        required: [true, "Case Description is required"],
+        // required: [true, "Case Description is required"],
         trim: true,
       },
       mainDistrict: {
         type: String,
         trim: true,
-        required: [true, "Main District is required"],
+        // required: [true, "Main District is required"],
       },
       establishment: {
         type: String,
         trim: true,
-        required: [true, "Establishment is required"],
+        // required: [true, "Establishment is required"],
       },
       natureOfCase: {
         type: String,
         enum: ["criminal", "civil"],
-        required: [true, "Nature of Case is required"],
+        // required: [true, "Nature of Case is required"],
       },
       reliefSought: {
         type: String,
         trim: true,
-        required: [true, "Relief Sought is required"],
+        // required: [true, "Relief Sought is required"],
       },
       caseType: {
         type: String,
         trim: true,
-        required: [true, "Case Type is required"],
+        // required: [true, "Case Type is required"],
       },
       plaintiff: {
         type: String,
         trim: true,
-        required: [true, "Plaintiff is required"],
+        // required: [true, "Plaintiff is required"],
       },
       contactNumber: {
         type: Number,
-        validate: {
-          validator: function (v) {
-            return /^\d{10}$/.test(v); // Mobile number validation (10 digits)
-          },
-          message: (props) => `${props.value} is not a valid mobile number!`,
-        },
-        required: [true, "Contact Number is required"],
+        // validate: {
+        //   validator: function (v) {
+        //     return /^\d{10}$/.test(v); // Mobile number validation (10 digits)
+        //   },
+        //   message: (props) => `${props.value} is not a valid mobile number!`,
+        // },
+        // required: [true, "Contact Number is required"],
       },
     },
 
@@ -88,31 +88,31 @@ const caseSchema = new mongoose.Schema(
       name: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Name is required"],
+        // required: [true, "Petitioner Name is required"],
       },
       gender: {
         type: String,
-        enum: ["male", "female", "other"],
-        required: [true, "Petitioner Gender is required"],
+        // enum: ["male", "female", "other"],
+        // required: [true, "Petitioner Gender is required"],
       },
       relation: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Relation is required"],
+        // required: [true, "Petitioner Relation is required"],
       },
       dateOfBirth: {
         type: Date,
-        required: [true, "Date of Birth of Petitioner is required"],
+        // required: [true, "Date of Birth of Petitioner is required"],
       },
       age: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Age is required"],
+        // required: [true, "Petitioner Age is required"],
       },
       caseDetails: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Case Details are required"],
+        // required: [true, "Petitioner Case Details are required"],
       },
       extraName: {
         type: String,
@@ -126,46 +126,46 @@ const caseSchema = new mongoose.Schema(
       occupation: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Occupation is required"],
+        // required: [true, "Petitioner Occupation is required"],
       },
       mobileNumber: {
         type: Number,
-        validate: {
-          validator: function (v) {
-            return /^\d{10}$/.test(v); // Mobile number validation (10 digits)
-          },
-          message: (props) => `${props.value} is not a valid mobile number!`,
-        },
-        required: [true, "Petitioner Mobile Number is required"],
+        // validate: {
+        //   validator: function (v) {
+        //     return /^\d{10}$/.test(v); // Mobile number validation (10 digits)
+        //   },
+        //   message: (props) => `${props.value} is not a valid mobile number!`,
+        // },
+        // required: [true, "Petitioner Mobile Number is required"],
       },
       pinCode: {
         type: Number,
-        required: [true, "Petitioner Pin Code is required"],
+        // required: [true, "Petitioner Pin Code is required"],
       },
       address: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Address is required"],
+        // required: [true, "Petitioner Address is required"],
       },
       state: {
         type: String,
         trim: true,
-        required: [true, "Petitioner State is required"],
+        // required: [true, "Petitioner State is required"],
       },
       district: {
         type: String,
         trim: true,
-        required: [true, "Petitioner District is required"],
+        // required: [true, "Petitioner District is required"],
       },
       taluka: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Taluka is required"],
+        // required: [true, "Petitioner Taluka is required"],
       },
       village: {
         type: String,
         trim: true,
-        required: [true, "Petitioner Village is required"],
+        // required: [true, "Petitioner Village is required"],
       }
     },
 
@@ -174,30 +174,30 @@ const caseSchema = new mongoose.Schema(
       name: {
         type: String,
         trim: true,
-        required: [true, "Responder Name is required"],
+        // required: [true, "Responder Name is required"],
       },
       gender: {
         type: String,
-        enum: ["male", "female", "other"],
-        required: [true, "Responder Gender is required"],
+        // enum: ["male", "female", "other"],
+        // required: [true, "Responder Gender is required"],
       },
       relation: {
         type: String,
         trim: true,
-        required: [true, "Responder Relation is required"],
+        // required: [true, "Responder Relation is required"],
       },
       dateOfBirth: {
         type: Date,
-        required: [true, "Date of Birth of Responder is required"],
+        // required: [true, "Date of Birth of Responder is required"],
       },
       age: {
         type: Number,
-        required: [true, "Responder Age is required"],
+        // required: [true, "Responder Age is required"],
       },
       caseDetails: {
         type: String,
         trim: true,
-        required: [true, "Responder Case Details are required"],
+        // required: [true, "Responder Case Details are required"],
       },
       extraName: {
         type: String,
@@ -206,51 +206,51 @@ const caseSchema = new mongoose.Schema(
       email: {
         type: String,
         trim: true,
-        required: [true, "Responder Email is required"],
+        // required: [true, "Responder Email is required"],
       },
       occupation: {
         type: String,
         trim: true,
-        required: [true, "Responder Occupation is required"],
+        // required: [true, "Responder Occupation is required"],
       },
       mobileNumber: {
         type: Number,
-        validate: {
-          validator: function (v) {
-            return /^\d{10}$/.test(v); // Mobile number validation (10 digits)
-          },
-          message: (props) => `${props.value} is not a valid mobile number!`,
-        },
-        required: [true, "Responder Mobile Number is required"],
+        // validate: {
+        //   validator: function (v) {
+        //     return /^\d{10}$/.test(v); // Mobile number validation (10 digits)
+        //   },
+        //   message: (props) => `${props.value} is not a valid mobile number!`,
+        // },
+        // required: [true, "Responder Mobile Number is required"],
       },
       pinCode: {
         type: Number,
-        required: [true, "Responder Pin Code is required"],
+        // required: [true, "Responder Pin Code is required"],
       },
       address: {
         type: String,
         trim: true,
-        required: [true, "Responder Address is required"],
+        // required: [true, "Responder Address is required"],
       },
       state: {
         type: String,
         trim: true,
-        required: [true, "Responder State is required"],
+        // required: [true, "Responder State is required"],
       },
       district: {
         type: String,
         trim: true,
-        required: [true, "Responder District is required"],
+        // required: [true, "Responder District is required"],
       },
       taluka: {
         type: String,
         trim: true,
-        required: [true, "Responder Taluka is required"],
+        // required: [true, "Responder Taluka is required"],
       },
       village: {
         type: String,
         trim: true,
-        required: [true, "Responder Village is required"],
+        // required: [true, "Responder Village is required"],
       },
     },
 
@@ -258,46 +258,46 @@ const caseSchema = new mongoose.Schema(
     causeOfAction: {
       type: String,
       trim: true,
-      required: [true, "Cause of Action is required"],
+      // required: [true, "Cause of Action is required"],
     },
     causeOfActionDate: {
       type: Date,
-      required: [true, "Cause of Action Date is required"],
+      // required: [true, "Cause of Action Date is required"],
     },
     importantInformation: {
       type: String,
       trim: true,
-      required: [true, "Important Information is required"],
+      // required: [true, "Important Information is required"],
     },
     prayer: {
       type: String,
       trim: true,
-      required: [true, "Prayer is required"],
+      // required: [true, "Prayer is required"],
     },
     valuation: {
       type: Number,
-      required: [true, "Valuation is required"],
+      // required: [true, "Valuation is required"],
     },
     location: {
       state: {
         type: String,
         trim: true,
-        required: [true, "State is required"],
+        // required: [true, "State is required"],
       },
       district: {
         type: String,
         trim: true,
-        required: [true, "District is required"],
+        // required: [true, "District is required"],
       },
       taluka: {
         type: String,
         trim: true,
-        required: [true, "Taluka is required"],
+        // required: [true, "Taluka is required"],
       },
       village: {
         type: String,
         trim: true,
-        required: [true, "Village is required"],
+        // required: [true, "Village is required"],
       },
     },
     legalDetails: [{

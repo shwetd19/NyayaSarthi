@@ -24,7 +24,7 @@ import IconMultipleForwardRight from '../components/Icon/IconMultipleForwardRigh
 const Index = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(setPageTitle('Sales Admin'));
+        dispatch(setPageTitle('Team Astra'));
     });
     const isDark = useSelector((state: IRootState) => state.themeConfig.theme === 'dark' || state.themeConfig.isDarkMode);
     const isRtl = useSelector((state: IRootState) => state.themeConfig.rtlClass) === 'rtl' ? true : false;
@@ -35,11 +35,11 @@ const Index = () => {
     const revenueChart: any = {
         series: [
             {
-                name: 'Income',
+                name: 'Scheduled',
                 data: [16800, 16800, 15500, 17800, 15500, 17000, 19000, 16000, 15000, 17000, 14000, 17000],
             },
             {
-                name: 'Expenses',
+                name: 'Not Scheduled',
                 data: [16500, 17500, 16200, 17300, 16000, 19500, 16000, 17000, 16000, 19000, 18000, 19000],
             },
         ],
@@ -115,7 +115,7 @@ const Index = () => {
                 tickAmount: 7,
                 labels: {
                     formatter: (value: number) => {
-                        return value / 1000 + 'K';
+                        return Math.round(value / 1000); // Round the value to the nearest whole number
                     },
                     offsetX: isRtl ? -30 : -10,
                     offsetY: 0,
@@ -126,6 +126,7 @@ const Index = () => {
                 },
                 opposite: isRtl ? true : false,
             },
+
             grid: {
                 borderColor: isDark ? '#191E3A' : '#E0E6ED',
                 strokeDashArray: 5,
@@ -183,7 +184,7 @@ const Index = () => {
 
     //Sales By Category
     const salesByCategory: any = {
-        series: [985, 737, 270],
+        series: [39, 46],
         options: {
             chart: {
                 type: 'donut',
@@ -247,7 +248,7 @@ const Index = () => {
                     },
                 },
             },
-            labels: ['Apparel', 'Sports', 'Others'],
+            labels: ['Scheduled', 'Unscheduled'],
             states: {
                 hover: {
                     filter: {
@@ -269,7 +270,7 @@ const Index = () => {
     const dailySales: any = {
         series: [
             {
-                name: 'Sales',
+                name: 'Cases',
                 data: [44, 55, 41, 67, 22, 43, 21],
             },
             {
@@ -350,7 +351,7 @@ const Index = () => {
     const totalOrders: any = {
         series: [
             {
-                name: 'Sales',
+                name: 'Cases',
                 data: [28, 40, 36, 52, 38, 60, 38, 52, 36, 40],
             },
         ],
@@ -415,7 +416,7 @@ const Index = () => {
                 <div className="grid xl:grid-cols-3 gap-6 mb-6">
                     <div className="panel h-full xl:col-span-2">
                         <div className="flex items-center justify-between dark:text-white-light mb-5">
-                            <h5 className="font-semibold text-lg">Revenue</h5>
+                            <h5 className="font-semibold text-lg">Details</h5>
                             <div className="dropdown">
                                 <Dropdown
                                     offset={[0, 1]}
@@ -437,7 +438,7 @@ const Index = () => {
                             </div>
                         </div>
                         <p className="text-lg dark:text-white-light/90">
-                            Total Profit <span className="text-primary ml-2">$10,840</span>
+                            Total Cases <span className="text-primary ml-2">61</span>
                         </p>
                         <div className="relative">
                             <div className="bg-white dark:bg-black rounded-lg overflow-hidden">
@@ -454,7 +455,7 @@ const Index = () => {
 
                     <div className="panel h-full">
                         <div className="flex items-center mb-5">
-                            <h5 className="font-semibold text-lg dark:text-white-light">Sales By Category</h5>
+                            <h5 className="font-semibold text-lg dark:text-white-light">Cases By Category</h5>
                         </div>
                         <div>
                             <div className="bg-white dark:bg-black rounded-lg overflow-hidden">
@@ -474,13 +475,13 @@ const Index = () => {
                     <div className="panel h-full sm:col-span-2 xl:col-span-1">
                         <div className="flex items-center mb-5">
                             <h5 className="font-semibold text-lg dark:text-white-light">
-                                Daily Sales
+                                Daily Cases
                                 <span className="block text-white-dark text-sm font-normal">Go to columns for details.</span>
                             </h5>
                             <div className="ltr:ml-auto rtl:mr-auto relative">
-                                <div className="w-11 h-11 text-warning bg-[#ffeccb] dark:bg-warning dark:text-[#ffeccb] grid place-content-center rounded-full">
+                                {/* <div className="w-11 h-11 text-warning bg-[#ffeccb] dark:bg-warning dark:text-[#ffeccb] grid place-content-center rounded-full">
                                     <IconDollarSign />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div>
@@ -526,8 +527,8 @@ const Index = () => {
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex font-semibold text-white-dark mb-2">
-                                        <h6>Income</h6>
-                                        <p className="ltr:ml-auto rtl:mr-auto">$92,600</p>
+                                        <h6>Criminal Cases</h6>
+                                        <p className="ltr:ml-auto rtl:mr-auto">83</p>
                                     </div>
                                     <div className="rounded-full h-2 bg-dark-light dark:bg-[#1b2e4b] shadow">
                                         <div className="bg-gradient-to-r from-[#7579ff] to-[#b224ef] w-11/12 h-full rounded-full"></div>
@@ -542,8 +543,8 @@ const Index = () => {
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex font-semibold text-white-dark mb-2">
-                                        <h6>Profit</h6>
-                                        <p className="ltr:ml-auto rtl:mr-auto">$37,515</p>
+                                        <h6>Civil Cases</h6>
+                                        <p className="ltr:ml-auto rtl:mr-auto">37</p>
                                     </div>
                                     <div className="w-full rounded-full h-2 bg-dark-light dark:bg-[#1b2e4b] shadow">
                                         <div className="bg-gradient-to-r from-[#3cba92] to-[#0ba360] w-full h-full rounded-full" style={{ width: '65%' }}></div>
@@ -558,8 +559,8 @@ const Index = () => {
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex font-semibold text-white-dark mb-2">
-                                        <h6>Expenses</h6>
-                                        <p className="ltr:ml-auto rtl:mr-auto">$55,085</p>
+                                        <h6>Corporate Cases </h6>
+                                        <p className="ltr:ml-auto rtl:mr-auto">55</p>
                                     </div>
                                     <div className="w-full rounded-full h-2 bg-dark-light dark:bg-[#1b2e4b] shadow">
                                         <div className="bg-gradient-to-r from-[#f09819] to-[#ff5858] w-full h-full rounded-full" style={{ width: '80%' }}></div>
@@ -572,13 +573,13 @@ const Index = () => {
                     <div className="panel h-full p-0">
                         <div className="flex items-center justify-between w-full p-5 absolute">
                             <div className="relative">
-                                <div className="text-success dark:text-success-light bg-success-light dark:bg-success w-11 h-11 rounded-lg flex items-center justify-center">
+                                {/* <div className="text-success dark:text-success-light bg-success-light dark:bg-success w-11 h-11 rounded-lg flex items-center justify-center">
                                     <IconShoppingCart />
-                                </div>
+                                </div> */}
                             </div>
                             <h5 className="font-semibold text-2xl ltr:text-right rtl:text-left dark:text-white-light">
-                                3,192
-                                <span className="block text-sm font-normal">Total Orders</span>
+                                85
+                                <span className="block text-sm font-normal">Total Cases Filed Day Wise</span>
                             </h5>
                         </div>
                         <div className="bg-transparent rounded-lg overflow-hidden">

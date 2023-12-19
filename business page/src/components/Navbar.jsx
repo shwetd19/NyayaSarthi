@@ -1,5 +1,5 @@
 /** @format */
-import { headerLogo, nikeLogo } from '../assets/images';
+import { headerLogo } from '../assets/images';
 import { navLinks } from '../constants';
 import ThemeSwitch from './ThemeSwitch';
 import { useMenuUpdateContext } from '../contexts/MenuContext';
@@ -17,10 +17,20 @@ const Navbar = ({ handleClick, handleClick2 }) => {
         isScrollingDown ? '-translate-y-full' : ''
       }${isScrollingUp ? 'translate-y-0' : ''}`}
     >
-      <nav className="flex justify-between items-center max-container">
+      <nav className="flex flex-row justify-between items-center max-container">
         <a href="/">
-          <img src={headerLogo} className="hidden lg:block" alt="logo" width="200" height="29" />
-          <img src={nikeLogo} className="lg:hidden h-[50px]" alt="logo" />
+          <img
+            src={'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702918742/nyayasarathi_xyaeyc.jpg'}
+            className="hidden scale-125 lg:block"
+            alt="logo"
+            width="200"
+            height="29"
+          />
+          <img
+            src={'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702918742/nyayasarathi_xyaeyc.jpg'}
+            className="lg:hidden h-[50px]"
+            alt="logo"
+          />
         </a>
         <ul className="flex-1 flex justify-end items-center gap-16 max-lg:hidden pr-16">
           {navLinks.map((item) => (

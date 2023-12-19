@@ -42,7 +42,7 @@ exports.isCourtAdmin = (req, res, next) => {
     next();
   } else {
     return next(
-      new ErrorResponse("Access denied. Only Judges are allowed.", 403)
+      new ErrorResponse("Access denied. Only Court admins are allowed.", 403)
     );
   }
 };

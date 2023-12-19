@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const FAQ = () => {
+const FAQ = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const handleAccordionToggle = (index) => {
@@ -9,41 +9,37 @@ export const FAQ = () => {
 
   const faqItems = [
     {
-      question: 'Can I cancel at anytime?',
-      answer:
-        'Yes, you can cancel anytime no questions are asked while you cancel, but we would highly appreciate if you will give us some feedback.'
+      question: 'What type of cases can be filed on this platform?',
+      answer: 'Cases types, including civil, criminal, or specific legal matters can be filed.'
     },
     {
-      question: 'My team has credits. How do we use them?',
+      question: 'How can I directly file a case on this platform?',
       answer:
-        'Once your team signs up for a subscription plan, this is where we sit down, grab a cup of coffee, and dial in the details.'
+        'This platform assists you to file a case directly. You must first register as a litigant and then enter all relevant information about your case. An e-filed produced for your case will be maintained as a record.'
     },
     {
-      question: "How does Preline's pricing work?",
-      answer: 'Our subscriptions are tiered. Understanding the task at hand and ironing out the wrinkles is key.'
+      question: 'Do I need to know the sections under IPC for the same?',
+      answer:
+        'Yes. You need to submit Fact details, Case details, Act details specifying the particular sections under IPC that have been violated.'
     },
     {
-      question: 'How secure is Preline?',
-      answer:
-        'Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.'
+      question: 'Do I have to pay in order to file my case?',
+      answer: 'No. You have to pay absolutely nothing for filing your case on this platform.'
     },
     {
-      question: 'Do you offer discounts?',
-      answer:
-        "We've built in discounts at each tier for teams. The time has come to bring those ideas and plans to life."
+      question: 'Is there any limit on number of cases to be filed?',
+      answer: 'No, there is no limit. You can file multiple cases on this platform.'
     }
   ];
 
   return (
     <div className="flex flex-row justify-around max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-      {/* <div className="w-full m-0 p-0 max-h- overflow-hidden object-cover relative">
+      <div className="w-1/2 m-0 p-0 max-h- overflow-hidden object-contain relative">
         <img
-          className=" scale-125"
-          src={
-            'https://images.unsplash.com/photo-1665916185751-2bd83e74f9a7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          }
+          className=""
+          src={'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702810445/Questions-pana_qfhfbf.svg'}
         />
-      </div> */}
+      </div>
       <div className="w-2/3 md:w-2/3 lg:w-2/3 flex flex-col ">
         {/* Grid */}
         <div className="w-full">
@@ -106,3 +102,5 @@ export const FAQ = () => {
     </div>
   );
 };
+
+export default FAQ;

@@ -213,7 +213,7 @@ const Sidebar = () => {
                                 <AnimateHeight duration={300} height={currentMenu === 'users' ? 'auto' : 0}>
                                     <ul className="sub-menu text-gray-500">
                                         <li>
-                                            <NavLink to="/users/profile">{t('profile')}</NavLink>
+                                            <NavLink to="/profile2">{t('profile')}</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to="/users/user-account-settings">{t('account_settings')}</NavLink>

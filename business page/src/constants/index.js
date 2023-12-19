@@ -18,9 +18,9 @@ import {
 
 export const navLinks = [
   { href: '/#home', label: 'Home' },
-  { href: '/#about-us', label: 'About Us' },
+  { href: '/AboutUs', label: 'About Us' },
   // { href: '/products', label: 'Products' },
-  { href: '/#contact-us', label: 'Contact Us' }
+  { href: '/Signup', label: 'Contact Us' }
 ];
 
 export const shoes = [
@@ -42,7 +42,7 @@ export const features = [
   {
     id: 'feature-1',
     // icon: send,
-    title: 'E-filing System',
+    title: 'Case E-filing System',
     content:
       'Upon a legal case registration, generation of an e-file, enabling swift documentation and organized record creation for the case'
   },
@@ -110,19 +110,19 @@ export const products = [
 
 export const services = [
   {
-    imgURL: truckFast,
+    imgURL: 'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702906529/sched_yekcee.png',
     label: 'Case E-Filing System',
     subtext:
       'Upon a legal case registration, generation of an e-file, enabling swift documentation and organized record creation for the case'
   },
   {
-    imgURL: shieldTick,
-    label: 'Priority based',
+    imgURL: 'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702906529/list_wapxqs.png',
+    label: 'Priority based Scheduling',
     subtext:
       'Efficiently manage cases with a centralized dashboard and digital record system, enhancing accessibility and organization.'
   },
   {
-    imgURL: support,
+    imgURL: 'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702906530/judge_rgajps.png',
     label: 'Judicial Override',
     subtext:
       'Granting judges the authority to modify scheduled case orders, ensuring flexibility and fairness in exceptional circumstances.'
@@ -131,59 +131,70 @@ export const services = [
 
 export const reviews = [
   {
-    imgURL: customer1,
-    customerName: 'Morich Brown',
-    rating: 4.5,
+    imgURL:
+      'https://media.licdn.com/dms/image/C4E03AQFjCiGoDlwFGw/profile-displayphoto-shrink_400_400/0/1620688060668?e=1708560000&v=beta&t=w-SCkec7Rzj66U6l_djDLndNMLhSlcMis_7zjADhpYU',
+    customerName: 'Nauman Chohan',
+    rating: 4.4,
     feedback: 'The attention to detail and the quality of the product exceeded my expectations. Highly recommended!'
   },
   {
-    imgURL: customer2,
-    customerName: 'Lota Mongeskar',
-    rating: 4.5,
-    feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
-  },
-  {
-    imgURL: customer3,
-    customerName: 'Ramesh Aggarwal',
-    rating: 4.3,
-    feedback: "The product not only met but exceeded my expectations. I'll definitely be a returning customer!"
-  },
-  {
-    imgURL: customer4,
-    customerName: 'Christina Yu',
-    rating: 4.3,
+    imgURL:
+      'https://media.licdn.com/dms/image/D4D03AQGQOZVAigaZmQ/profile-displayphoto-shrink_800_800/0/1663096627002?e=1708560000&v=beta&t=F4AGGA39hTMvfmBvjMnOnUFfOSXVvau5h0czRdAtOGo',
+    customerName: 'Neha Hajare',
+    rating: 4.2,
     feedback:
-      'I got a pair of boots from nike and I’m very satisfied. They are high-quality and worth the money. The store also offered free shipping at that price so that’s a plus!'
+      'I apprecaite the convenience this platform provides. The organized case list and easy navigation truly helps in managing legal matters effectivley.'
+  },
+  {
+    imgURL: 'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702892625/murari_yzvnff.jpg',
+    customerName: 'Murari Ramuka (Google)',
+    rating: 4,
+    feedback:
+      "The platform's design is incredible. The case registeration, updates really has a quick response. Morover, the data about case types, court complexes is  highly accurate. "
+  },
+  {
+    imgURL:
+      'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702920943/WhatsApp_Image_2023-12-18_at_23.05.10_cf951103_isb0rr.jpg',
+    customerName: 'Adv. P.N. Gope (Ex. P.P. Jamshedpur)',
+    rating: 4.1,
+    feedback:
+      'I am a lawyer, and this website is really an innovation in this field. It is user-friendly and provides helpful overview of case statuses separate display of competed, pending cases, scheduled-unscheduled cases, aiding lawyers like me in our work.'
   }
+  // {
+  //   imgURL: customer4,
+  //   customerName: 'Adv. Ashutosh Singh',
+  //   rating: 4.1,
+  //   feedback:
+  //     'I am a lawyer, and this website is really an innovation in this field. It is user-friendly and provides helpful overview of case statuses separate display of competed, pending cases, scheduled-unscheduled cases, aiding lawyers like me in our work.'
+  // }
 ];
 
 export const footerLinks = [
   {
-    title: 'Products',
-    links: [
-      { name: 'Air Force 1', link: '/' },
-      { name: 'Air Max 1', link: '/' },
-      { name: 'Air Jordan 1', link: '/' },
-      { name: 'Air Force 2', link: '/' },
-      { name: 'Nike Waffle Racer', link: '/' },
-      { name: 'Nike Cortez', link: '/' }
-    ]
-  },
-  {
     title: 'Help',
     links: [
-      { name: 'About us', link: '/' },
-      { name: 'FAQs', link: '/' },
-      { name: 'How it works', link: '/' },
-      { name: 'Privacy policy', link: '/' },
-      { name: 'Payment policy', link: '/' }
+      { name: 'Terms and Conditions', link: '/' },
+      { name: 'Video Tutorial', link: '/SuperQuality' },
+      { name: 'Documentation', link: '/' }
+
+      // { name: 'Air Force 2', link: '/' },
+      // { name: 'Nike Waffle Racer', link: '/' },
+      // { name: 'Nike Cortez', link: '/' }
     ]
   },
   {
-    title: 'Get in touch',
+    title: 'Services',
     links: [
-      { name: 'customer@nike.com', link: 'mailto:customer@nike.com' },
-      { name: '+92554862354', link: 'tel:+92554862354' }
+      { name: 'Chat with us', link: '/' },
+      { name: 'FAQs', link: '/FAQ' },
+      { name: 'User Reviews', link: '/CustomerReviews' }
+    ]
+  },
+  {
+    title: 'Support',
+    links: [
+      { name: 'teamastra@gmail.com', link: 'mailto:teamastra@gmail.com' },
+      { name: '+91 7218821284', link: 'tel:+917218821284' }
     ]
   }
 ];
@@ -195,7 +206,7 @@ export const socialMedia = [
   {
     src: github,
     alt: 'github logo',
-    link: 'https://github.com/warmachine028/nike'
+    link: 'https://github.com/codewithmitesh'
   }
 ];
 

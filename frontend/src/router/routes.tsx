@@ -105,13 +105,22 @@ const Contacts2 = lazy(()=>import("../pages/Apps/contacts2"))
 const Finalform = lazy(()=>import("../pages/Apps/Invoice/finalform"))
 const Sidebar3= lazy(()=>import("../components/Layouts/Sidebar3"))
 const Contact3= lazy(()=>import("../pages/Apps/contacts3"))
-
+const FinalForm2= lazy(()=>import("../pages/Apps/Invoice/MainForm"))
+const Profile2= lazy(()=>import("../pages/Users/profile2"))
 
 const routes = [
     // dashboard
     {
         path: '/',
         element: <Index />,
+    },
+    {
+        path: '/profile2',
+        element: <Profile2 />,
+    },
+    {
+        path: '/FinalForm2',
+        element: <FinalForm2 />,
     },
     {
         path: '/contact3',

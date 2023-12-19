@@ -9,7 +9,7 @@ import customer4 from './customer4.jpg';
 
 import footerLogo from './footer-logo.svg';
 import headerLogo from './header-logo.svg';
-import nikeLogo from './nikeLogo.png';
+// import nikeLogo from './nikeLogo.png';
 
 import offer from './offer.svg';
 
@@ -34,7 +34,6 @@ export {
   customer4,
   footerLogo,
   headerLogo,
-  nikeLogo,
   offer,
   shoe4,
   shoe5,

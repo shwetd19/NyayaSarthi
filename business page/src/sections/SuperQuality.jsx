@@ -1,15 +1,17 @@
 import { shoe8 } from '../assets/images';
 import Button from '../components/Button';
 import ReactPlayer from 'react-player';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const SuperQuality = () => {
   return (
     <section className="padding">
       <div
-        id="about-us"
+        // id="about-us"
         className="max-container items-center max-sm:mt-12 flex justify-between  max-lg:flex-col gap-10 w-full"
       >
-        <div className="flex flex-1 flex-col">
+        <div data-aos="zoom-out-right" className="flex flex-1 flex-col">
           <h2 className="font-palanquin text-4xl capitalize font-bold lg:max-w-lg">
             Easily{' '}
             <span className="text-coral-red">
@@ -28,7 +30,7 @@ const SuperQuality = () => {
             <Button>File Case</Button>
           </div>
         </div>
-        <div className="flex-1 flex justify-center items-center ">
+        <div data-aos="zoom-out-left" className="flex-1 flex justify-center items-center ">
           {/* <img
             src={shoe8}
             alt="shoe"
@@ -45,7 +47,7 @@ const SuperQuality = () => {
             className="rounded-xl"
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/LXb3EKWsInQ?si=jNDgOszTNe-vMpjh"
+            src="https://www.youtube.com/watch?v=Rh3tobg7hEo"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

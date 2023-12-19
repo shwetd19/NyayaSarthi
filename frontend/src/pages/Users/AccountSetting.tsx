@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setPageTitle } from '../../store/themeConfigSlice';
 import { userInfo } from 'os';
+import IconUser from '../../components/Icon/IconUser';
 
 const AccountSetting = () => {
     const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const AccountSetting = () => {
                             <h6 className="text-lg font-bold mb-5">General Information</h6>
                             <div className="flex flex-col sm:flex-row">
                                 <div className="ltr:sm:mr-4 rtl:sm:ml-4 w-full sm:w-2/12 mb-5">
-                                    <img src="/assets//images/profile-34.jpeg" alt="img" className="w-20 h-20 md:w-32 md:h-32 rounded-full object-cover mx-auto" />
+                                <IconUser className="w-20 h-20 ltr:mr-2 rtl:ml-2 shrink-0" />
                                 </div>
                                 <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-5">
                                     <div>

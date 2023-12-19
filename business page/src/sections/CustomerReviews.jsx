@@ -38,11 +38,11 @@ const CustomerReviews = () => {
       <div className="max-container">
         <h3 className="font-palanquin text-4xl font-bold text-center dark:text-gray-100">
           What Our
-          <span className="text-coral-red"> Customers </span>
+          <span className="text-coral-red"> Mentors </span>
           Say?
         </h3>
         <p className="info-text m-auto mt-4 max-w-lg text-center dark:text-gray-300">
-          Hear Genuine stories from our satisfied customers about their exceptional experiences with us.
+          Check out real reviews from our guiding lights talking about their experiences with our product!
         </p>
       </div>
 

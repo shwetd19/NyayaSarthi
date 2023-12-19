@@ -324,7 +324,6 @@ getUserDataFromBackend();
                 </li>
             </ul>
             <div className="pt-5">
-                <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5 mb-5">
                     <div className="panel">
                         <div className="flex items-center justify-between mb-5">
                             <h5 className="font-semibold text-lg dark:text-white-light">Profile</h5>
@@ -365,33 +364,6 @@ getUserDataFromBackend();
                             </ul>
                         </div>
                     </div>
-
-                    <div className="panel lg:col-span-2 xl:col-span-3">
-                        <div className="mb-5 text-lg font-bold">Recent Case's</div>
-                        <div className="table-responsive">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th className="ltr:rounded-l-md rtl:rounded-r-md">ID</th>
-                                        <th>DATE</th>
-                                        <th>NAME</th>
-                                        <th>Mobile no</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                    {dataList.map((item) => (
-                        <tr key={item.id}>
-                            <td className="font-semibold">#{item.id}</td>
-                            <td className="whitespace-nowrap">{item.date}</td>
-                            <td className="whitespace-nowrap">{item.name}</td>
-                            <td className="text-center">{item.Mobileno}</td>
-                        </tr>
-                    ))}
-                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
                 <div className="grid xl:grid-cols-3 gap-6 mb-6">

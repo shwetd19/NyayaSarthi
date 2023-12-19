@@ -1,7 +1,7 @@
 /** @format */
 
 import { copyrightSign } from '../assets/icons';
-import { footerLogo } from '../assets/images';
+// import { footerLogo } from '../assets/images';
 import { footerLinks, socialMedia } from '../constants';
 
 const Footer = () => {
@@ -11,13 +11,22 @@ const Footer = () => {
         <div className="flex justify-between items-start gap-20 flex-wrap max-lg:flex-col">
           <div className="flex flex-col items-start">
             <a href="/">
-              <img src={footerLogo} alt="footer-logo" width={150} height={46} />
+              <img
+                src={'https://res.cloudinary.com/dt3lzix8e/image/upload/v1702920836/logo_ksedwn.jpg'}
+                alt="footer-logo"
+                width={150}
+                height={46}
+                className="scale-150"
+              />
             </a>
             <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm">
-              Get shoes ready for the new term at your nearest Nike store. Find your perfect Size in store. Get{' '}
-              <span className="underline cursor-pointer hoverUnderline hover:no-underline">rewards</span>
+              Team Astra_11, a group of engineering students, excels in software development and hackathons.
+              {/* <span className="underline cursor-pointer hoverUnderline hover:no-underline">rewards</span> */}
             </p>
-            <div className="flex items-center gap-5 mt-8">
+            <p className="mt-6 text-base leading-7 font-montserrat text-white-400 sm:max-w-sm">
+              MIT Academy of Engineering, <br></br> Alandi, Pune - 412105
+            </p>
+            <div className="flex items-center justify-center gap-5 mt-8">
               {socialMedia.map((icon) => (
                 <a
                   key={icon.alt}
@@ -48,13 +57,13 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex justify-between text-white-400 mt-24 max-sm:flex-col max-sm:items-center">
+        {/* <div className="flex justify-between text-white-400 mt-24 max-sm:flex-col max-sm:items-center">
           <div className="flex flex-1 justify-start items-center gap-2 font-montserrat cursor-pointer">
             <img src={copyrightSign} alt="copyright" width={20} height={20} className="rounded-full m-0" />
             <p>Copyright. All rights reserved.</p>
           </div>
           <p className="font-montserrat cursor-pointer">Terms & Conditions</p>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

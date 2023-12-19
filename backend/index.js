@@ -18,6 +18,14 @@ app.use(morgan('tiny'));
 app.use(credentials);
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
+app.use(cors({
+    origin: [
+        "https://ssu-admin.vercel.app",
+        "https://ssu-8uh2.vercel.app",
+        "http://localhost:3000"
+    ]
+}))
+
 
 // Accepting Cookies from client
 app.use(cookieParser())

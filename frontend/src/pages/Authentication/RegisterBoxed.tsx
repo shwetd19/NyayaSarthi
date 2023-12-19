@@ -2,15 +2,16 @@ import { wait } from "@testing-library/user-event/dist/utils";
 import axios, { AxiosResponse } from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { axiosInstance } from "../../config";
 
 const RegisterBoxed = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
-    userType: "",
+    name: "",
+    type: "",
     email: "",
     password: "",
-    dob: "",
-    workingPlace: "",
+    dateOfBirth: "",
+    ordinaryPlaceOfWorking: "",
     district: "",
     state: "",
     mobile: "",
@@ -34,12 +35,32 @@ const RegisterBoxed = () => {
 
   // const [formData, setFormData] = useState<any>({});
 
+  // const sendDataToBackend = async (data: any) => {
+  //   try {
+  //     // const response: AxiosResponse<any> = await axios.post("http://localhost:5000/api/signup", data,{
+  //     const response: AxiosResponse<any> = await axiosInstance.post(
+  //       "/signup",
+  //       data
+  //     );
+  //     console.log("Data sent to the backend:", response.data);
+
+  //     setTimeout(() => {}, 5000);
+  //   } catch (error: any) {
+  //     console.error("Error sending data to the backend:", error);
+  //   }
+  // };
+
   const sendDataToBackend = async (data: any) => {
     try {
-      const response: AxiosResponse<any> = await axios.post("/signup", data);
+      console.log(data);
+      // const response: AxiosResponse<any> = await axios.post("http://localhost:5000/api/signup", data,{
+      const response: AxiosResponse<any> = await axiosInstance.post(
+        "/signup",
+        data
+      );
       console.log("Data sent to the backend:", response.data);
-
-      setTimeout(() => {}, 5000);
+      // navigate("/")
+      // setTimeout(() => {}, 5000);
     } catch (error: any) {
       console.error("Error sending data to the backend:", error);
     }
@@ -81,7 +102,7 @@ const RegisterBoxed = () => {
           alt="image"
           className="absolute bottom-0 end-[28%]"
         />
-        <div className="relative w-full max-w-[870px] rounded-md bg-[linear-gradient(45deg,#fff9f9_0%,rgba(255,255,255,0)_25%,rgba(255,255,255,0)_75%,_#fff9f9_100%)] p-2 dark:bg-[linear-gradient(52.22deg,#0E1726_0%,rgba(14,23,38,0)_18.66%,rgba(14,23,38,0)_51.04%,rgba(14,23,38,0)_80.07%,#0E1726_100%)]">
+        <div className="relative w-full max-w-[870px] rounded-md bg-[linear-gradient(45deg,#fff9f9_0%,rgba(255,255,255,0)25%,rgba(255,255,255,0)_75%,#fff9f9_100%)] p-2 dark:bg-[linear-gradient(52.22deg,#0E1726_0%,rgba(14,23,38,0)_18.66%,rgba(14,23,38,0)_51.04%,rgba(14,23,38,0)_80.07%,#0E1726_100%)]">
           <div className="relative flex flex-col justify-center rounded-md bg-white/60 backdrop-blur-lg dark:bg-black/50 px-6 lg:min-h-[758px] py-20">
             <div className="mx-auto w-full max-w-[440px]">
               <div className="mb-10">
@@ -92,31 +113,35 @@ const RegisterBoxed = () => {
                   Enter your email and password to register
                 </p>
               </div>
-              <form className="space-y-5 dark:text-white" onSubmit={handleSubmit}>
+              <form
+                className="space-y-5 dark:text-white"
+                onSubmit={handleSubmit}
+              >
                 <div className="space-y-5 dark:text-white">
                   <div>
-                    <label htmlFor="fullName">Full Name *</label>
+                    <label htmlFor="name">Full Name *</label>
                     <input
                       type="text"
-                      id="fullName"
+                      id="name"
                       placeholder="Enter Full Name *"
                       className="form-input"
-                      value={formData.fullName}
+                      value={formData.name}
                       onChange={handleInputChange}
                     />
                   </div>
                   <div>
-                    <label htmlFor="userType">Type *</label>
+                    <label htmlFor="type">Type *</label>
                     <select
-                      id="userType"
+                      id="type"
                       className="form-input"
-                      value={formData.userType}
+                      value={formData.type}
                       onChange={handleInputChange}
                       required
                     >
-                      <option>Choose...</option>
-                      <option>State1</option>
-                      <option>State2</option>
+                      <option value="">Choose...</option>
+                      <option value="Lawyer">Lawyer</option>
+                      <option value="Judge">Judge</option>
+                      <option value="courtAdmin">Court Admin</option>
                     </select>
                   </div>
                   <div>
@@ -144,31 +169,31 @@ const RegisterBoxed = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="dob">Date Of Birth *</label>
+                    <label htmlFor="dateOfBirth">Date Of Birth *</label>
                     <input
                       type="date"
-                      id="dob"
+                      id="dateOfBirth"
                       className="form-input"
-                      value={formData.dob}
+                      value={formData.dateOfBirth}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                   <div>
-                    <label htmlFor="workingPlace">
+                    <label htmlFor="ordinaryPlaceOfWorking">
                       Ordinary Place Of Working *
                     </label>
                     <select
-                      id="workingPlace"
+                      id="ordinaryPlaceOfWorking"
                       className="form-input"
-                      value={formData.workingPlace}
+                      value={formData.ordinaryPlaceOfWorking}
                       onChange={handleInputChange}
                       required
                     >
                       <option value="">--- select ---</option>
-                      <option value="One">One</option>
-                      <option value="Two">Two</option>
-                      <option value="Three">Three</option>
+                      <option value="High Court">High Court</option>
+                      <option value="District Court">District Court</option>
+                      <option value="Supreme Court">Supreme Court</option>
                     </select>
                   </div>
                   <div>

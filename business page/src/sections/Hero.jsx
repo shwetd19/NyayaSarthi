@@ -7,6 +7,9 @@ import { bigShoe1 } from '../assets/images';
 import ShoeCard from '../components/ShoeCard';
 import { useState, useEffect } from 'react';
 import Business from '../components/Business';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+// import {vdo} from '../assets/images/'
 
 const formatNumber = (number) => {
   if (number < 1000) {
@@ -31,6 +34,8 @@ const Hero = () => {
       customers: 250000
     };
 
+    Aos.init();
+
     const stepDuration = animationDuration / 100;
 
     const updateStatistics = (currentStep) => {
@@ -54,16 +59,20 @@ const Hero = () => {
 
   return (
     <>
-      <div id="bg-video" className="-z-10 opacity-[0.9] relative">
+      <div id="bg-video" className="-z-10 relative">
         <video
-          className="opacity-90 h-900 w-full "
+          className="h-900 w-full "
           id="background-video"
           autoPlay
           muted
           loop
           poster="https://assets.codepen.io/6093409/river.jpg"
         >
-          <source src={'https://mastercard-a.akamaihd.net/videos/RSA_Header_video_1080p_new.mp4'} type="video/mp4" />
+          <source
+            src={'https://res.cloudinary.com/dt3lzix8e/video/upload/v1702903562/astra_jvhnaj.mp4'}
+            type="video/mp4"
+          />
+          {/* https://youtu.be/yXaegVWBrK0?feature=shared */}
         </video>
       </div>
       {/* <Business /> */}
@@ -76,7 +85,10 @@ const Hero = () => {
           id="home"
           className="w-full flex xl:flex-row flex-col justify-start min-h-screen gap-10 max-container absolute z-50 content-center"
         >
-          <div className="relative xl:w-2/5 flex flex-col content-center items-start w-full max-xl:padding-x pt-28 z-10">
+          <div
+            data-aos="fade-up-right"
+            className="relative xl:w-2/5 flex flex-col content-center items-start w-full max-xl:padding-x pt-28 z-10"
+          >
             <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[110px] font-bold">
               <span className=" xl:whitespace-nowrap relative pr-10 xl: dark:xl:bg-slate-gray duration-400 rounded-lg">
                 Revolutionizing
@@ -85,7 +97,7 @@ const Hero = () => {
               <span className="text-coral-red inline-block mt-6">DCFM </span> System
             </h1>
             <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm dark:text-gray-400">
-              Harnessing AI capabilities to introduce Differentiated Case Flow Management (DCFM) empowered by the MLFQ
+              Harnessing AI capabilities to introduce Differentiated Case Flow Management (DCFM) empowered by the MLQ
               Algorithm, revolutionizes case handling.
             </p>
             <Button icon={arrowRight}>Explore</Button>
